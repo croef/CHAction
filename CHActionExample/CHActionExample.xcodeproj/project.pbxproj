@@ -14,6 +14,8 @@
 		CB7ED6D81C282D53009AC685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB7ED6D71C282D53009AC685 /* Assets.xcassets */; };
 		CB7ED6DB1C282D53009AC685 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB7ED6D91C282D53009AC685 /* LaunchScreen.storyboard */; };
 		CB7ED6E61C282D53009AC685 /* CHActionExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7ED6E51C282D53009AC685 /* CHActionExampleTests.m */; };
+		CB7ED6F41C283348009AC685 /* CHActionNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7ED6F31C283348009AC685 /* CHActionNode.m */; };
+		CB7ED6F71C28342C009AC685 /* CHAction.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7ED6F61C28342C009AC685 /* CHAction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		CB7ED6E11C282D53009AC685 /* CHActionExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CHActionExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB7ED6E51C282D53009AC685 /* CHActionExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CHActionExampleTests.m; sourceTree = "<group>"; };
 		CB7ED6E71C282D53009AC685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB7ED6F21C283348009AC685 /* CHActionNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHActionNode.h; sourceTree = "<group>"; };
+		CB7ED6F31C283348009AC685 /* CHActionNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHActionNode.m; sourceTree = "<group>"; };
+		CB7ED6F51C28342C009AC685 /* CHAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAction.h; sourceTree = "<group>"; };
+		CB7ED6F61C28342C009AC685 /* CHAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,14 +88,8 @@
 		CB7ED6CA1C282D53009AC685 /* CHActionExample */ = {
 			isa = PBXGroup;
 			children = (
-				CB7ED6CE1C282D53009AC685 /* AppDelegate.h */,
-				CB7ED6CF1C282D53009AC685 /* AppDelegate.m */,
 				CB7ED6D11C282D53009AC685 /* ViewController.h */,
 				CB7ED6D21C282D53009AC685 /* ViewController.m */,
-				CB7ED6D41C282D53009AC685 /* Main.storyboard */,
-				CB7ED6D71C282D53009AC685 /* Assets.xcassets */,
-				CB7ED6D91C282D53009AC685 /* LaunchScreen.storyboard */,
-				CB7ED6DC1C282D53009AC685 /* Info.plist */,
 				CB7ED6CB1C282D53009AC685 /* Supporting Files */,
 			);
 			path = CHActionExample;
@@ -98,6 +98,12 @@
 		CB7ED6CB1C282D53009AC685 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CB7ED6CE1C282D53009AC685 /* AppDelegate.h */,
+				CB7ED6CF1C282D53009AC685 /* AppDelegate.m */,
+				CB7ED6D41C282D53009AC685 /* Main.storyboard */,
+				CB7ED6D71C282D53009AC685 /* Assets.xcassets */,
+				CB7ED6D91C282D53009AC685 /* LaunchScreen.storyboard */,
+				CB7ED6DC1C282D53009AC685 /* Info.plist */,
 				CB7ED6CC1C282D53009AC685 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -115,6 +121,10 @@
 		CB7ED6F01C282D6D009AC685 /* CHAction */ = {
 			isa = PBXGroup;
 			children = (
+				CB7ED6F51C28342C009AC685 /* CHAction.h */,
+				CB7ED6F61C28342C009AC685 /* CHAction.m */,
+				CB7ED6F21C283348009AC685 /* CHActionNode.h */,
+				CB7ED6F31C283348009AC685 /* CHActionNode.m */,
 			);
 			name = CHAction;
 			path = ../CHAction;
@@ -220,9 +230,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB7ED6F41C283348009AC685 /* CHActionNode.m in Sources */,
 				CB7ED6D31C282D53009AC685 /* ViewController.m in Sources */,
 				CB7ED6D01C282D53009AC685 /* AppDelegate.m in Sources */,
 				CB7ED6CD1C282D53009AC685 /* main.m in Sources */,
+				CB7ED6F71C28342C009AC685 /* CHAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +363,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CHActionExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cr185.CHActionExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -362,6 +375,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CHActionExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cr185.CHActionExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -411,6 +425,7 @@
 				CB7ED6EC1C282D53009AC685 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CB7ED6ED1C282D53009AC685 /* Build configuration list for PBXNativeTarget "CHActionExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +434,7 @@
 				CB7ED6EF1C282D53009AC685 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
