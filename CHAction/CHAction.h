@@ -8,6 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
+@class CHAction;
+
+typedef void(^CHCompletion)(id param);
+
+typedef id(^CHActionBlock)(CHAction *action, CHCompletion completion);
+
+
 @interface CHAction : NSObject
 
+@property (nonatomic) id param;
+
+
++ (instancetype)chAction;
+
+- (CHAction *(^)(CHActionBlock block))doAction;
+
+
+- (void)test:(CHActionBlock)block;
 @end
