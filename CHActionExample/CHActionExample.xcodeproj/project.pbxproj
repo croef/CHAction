@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB4804C41C4CB8CF00F068BD /* CHActionRunLine.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4804C31C4CB8CF00F068BD /* CHActionRunLine.m */; };
 		CB7ED6CD1C282D53009AC685 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7ED6CC1C282D53009AC685 /* main.m */; };
 		CB7ED6D01C282D53009AC685 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7ED6CF1C282D53009AC685 /* AppDelegate.m */; };
 		CB7ED6D31C282D53009AC685 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7ED6D21C282D53009AC685 /* ViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CB4804C21C4CB8CF00F068BD /* CHActionRunLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHActionRunLine.h; sourceTree = "<group>"; };
+		CB4804C31C4CB8CF00F068BD /* CHActionRunLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHActionRunLine.m; sourceTree = "<group>"; };
 		CB7ED6C81C282D53009AC685 /* CHActionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CHActionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB7ED6CC1C282D53009AC685 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CB7ED6CE1C282D53009AC685 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -118,19 +121,13 @@
 		CB7ED6F01C282D6D009AC685 /* CHAction */ = {
 			isa = PBXGroup;
 			children = (
-				CBD477DE1C2ABAC300A78A52 /* Category */,
 				CB7ED6F51C28342C009AC685 /* CHAction.h */,
 				CB7ED6F61C28342C009AC685 /* CHAction.m */,
+				CB4804C21C4CB8CF00F068BD /* CHActionRunLine.h */,
+				CB4804C31C4CB8CF00F068BD /* CHActionRunLine.m */,
 			);
 			name = CHAction;
 			path = ../CHAction;
-			sourceTree = "<group>";
-		};
-		CBD477DE1C2ABAC300A78A52 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB7ED6D31C282D53009AC685 /* ViewController.m in Sources */,
+				CB4804C41C4CB8CF00F068BD /* CHActionRunLine.m in Sources */,
 				CB7ED6D01C282D53009AC685 /* AppDelegate.m in Sources */,
 				CB7ED6CD1C282D53009AC685 /* main.m in Sources */,
 				CB7ED6F71C28342C009AC685 /* CHAction.m in Sources */,

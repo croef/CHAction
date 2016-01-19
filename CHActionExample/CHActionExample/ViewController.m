@@ -12,6 +12,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic) NSString *str;
+
 @end
 
 @implementation ViewController
@@ -19,29 +21,128 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-
-    [CHAction chAction].doAction(^id(CHAction *action, CHCompletion completion) {
-        completion(@"start");
-        return nil;
-    }).doAction(^id(CHAction *action, CHCompletion completion) {
-        NSLog(@"step1:receive:%@",action.param);
+    
+    //    [CHAction action:^(id result) {
+    //        NSLog(@"%@",result);
+    //    }].doAction(^id(CHAction *action) {
+    //        sleep(2);
+    //        NSLog(@"%@",action.result);
+    //        return @"first";
+    //    }).doAction(^id(CHAction *action) {
+    //        sleep(2);
+    //        NSLog(@"%@",action.result);
+    //        return @"second";
+    //    }).doAction(^id(CHAction *action) {
+    //        sleep(2);
+    //        NSLog(@"%@",action.result);
+    //        return @"third";
+    //    });
+    
+    [CHAction action:^(id result) {
+        NSLog(@"%@",result);
+    }].doActionWithBlock(^(CHAction *action, void (^finishBlock)(id param)){
+        NSLog(@"%@",action.result);
+        sleep(3);
+        NSLog(@"2%@",[NSThread currentThread]);
+        finishBlock(@"a");
+        NSLog(@"3%@",[NSThread currentThread]);
+    }).doActionWithBlock(^(CHAction *action, void (^finishBlock)(id param)){
+        NSLog(@"%@",action.result);
+        sleep(2);
+        NSLog(@"2%@",[NSThread currentThread]);
+        finishBlock(@"b");
+        NSLog(@"3%@",[NSThread currentThread]);
+    }).doActionWithBlock(^(CHAction *action, void (^finishBlock)(id param)){
+        NSLog(@"%@",action.result);
         sleep(5);
-        completion(@"step1");
-        return nil;
-    }).doAction(^id(CHAction *action, CHCompletion completion) {
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            sleep(2);
-            NSLog(@"step2:receive:%@",action.param);
-            completion(@"step2");
-        });
-        
-        return nil;
-    }).doAction(^id(CHAction *action, CHCompletion completion) {
-        NSLog(@"step3:receive:%@",action.param);
-        completion(@"step3");
-        return nil;
+        NSLog(@"2%@",[NSThread currentThread]);
+        finishBlock(@"c");
+        NSLog(@"3%@",[NSThread currentThread]);
+    }).doActionWithBlock(^(CHAction *action, void (^finishBlock)(id param)){
+        NSLog(@"%@",action.result);
+        sleep(2);
+        NSLog(@"2%@",[NSThread currentThread]);
+        finishBlock(@"d");
+        NSLog(@"3%@",[NSThread currentThread]);
     });
 }
+
+- (void)finishBlockDemo {
+    [CHAction action:^(id result) {
+        NSLog(@"%@",result);
+    }].doActionWithBlock(^(CHAction *action, void (^finishBlock)(id param)){
+        NSLog(@"1%@",[NSThread currentThread]);
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSLog(@"%@",action);
+            sleep(3);
+            self.str = @"aa";
+            NSLog(@"2%@",[NSThread currentThread]);
+            finishBlock(@"a");
+        });
+        NSLog(@"3%@",[NSThread currentThread]);
+    }).doActionWithBlock(^(CHAction *action, void (^finishBlock)(id param)){
+        NSLog(@"1%@",[NSThread currentThread]);
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSLog(@"%@",action);
+            sleep(2);
+            self.str = @"bb";
+            NSLog(@"2%@",[NSThread currentThread]);
+            finishBlock(@"b");
+        });
+        NSLog(@"3%@",[NSThread currentThread]);
+    }).doActionWithBlock(^(CHAction *action, void (^finishBlock)(id param)){
+        NSLog(@"1%@",[NSThread currentThread]);
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSLog(@"%@",action);
+            sleep(5);
+            action.stop = YES;
+            NSLog(@"2%@",[NSThread currentThread]);
+            finishBlock(@"c");
+        });
+        NSLog(@"3%@",[NSThread currentThread]);
+    }).doActionWithBlock(^(CHAction *action, void (^finishBlock)(id param)){
+        NSLog(@"1%@",[NSThread currentThread]);
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSLog(@"%@",action);
+            sleep(2);
+            self.str = @"bb";
+            NSLog(@"2%@",[NSThread currentThread]);
+            finishBlock(@"b");
+        });
+        NSLog(@"3%@",[NSThread currentThread]);
+    }).doActionWithBlock(^(CHAction *action, void (^finishBlock)(id param)){
+        NSLog(@"1%@",[NSThread currentThread]);
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSLog(@"%@",action);
+            sleep(2);
+            self.str = @"bb";
+            NSLog(@"2%@",[NSThread currentThread]);
+            finishBlock(@"b");
+        });
+        NSLog(@"3%@",[NSThread currentThread]);
+    }).doActionWithBlock(^(CHAction *action, void (^finishBlock)(id param)){
+        NSLog(@"1%@",[NSThread currentThread]);
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSLog(@"%@",action);
+            sleep(2);
+            self.str = @"bb";
+            NSLog(@"2%@",[NSThread currentThread]);
+            finishBlock(@"b");
+        });
+        NSLog(@"3%@",[NSThread currentThread]);
+    }).doActionWithBlock(^(CHAction *action, void (^finishBlock)(id param)){
+        NSLog(@"1%@",[NSThread currentThread]);
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            NSLog(@"%@",action);
+            sleep(2);
+            self.str = @"bb";
+            NSLog(@"2%@",[NSThread currentThread]);
+            finishBlock(@"b");
+        });
+        NSLog(@"3%@",[NSThread currentThread]);
+    });
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

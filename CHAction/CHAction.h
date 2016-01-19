@@ -10,20 +10,27 @@
 
 @class CHAction;
 
+typedef void(^CHActionWheel)(id result);
+
 typedef void(^CHCompletion)(id param);
 
-typedef id(^CHActionBlock)(CHAction *action, CHCompletion completion);
+typedef void(^CHActionBlockWithCompletion)(CHAction *action, CHCompletion completion);
+
+typedef id(^CHActionBlock)(CHAction *action);
 
 
 @interface CHAction : NSObject
 
-@property (nonatomic) id param;
+@property (nonatomic) id result;
 
+@property (nonatomic) BOOL stop;
 
-+ (instancetype)chAction;
++ (instancetype)action;
+
++ (instancetype)action:(CHActionWheel)block;
+
+- (CHAction *(^)(CHActionBlockWithCompletion block))doActionWithBlock;
 
 - (CHAction *(^)(CHActionBlock block))doAction;
 
-
-- (void)test:(CHActionBlock)block;
 @end
