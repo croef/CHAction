@@ -23,6 +23,8 @@ const char *kCHActionRunQueue = "kCHActionRunQueue";
 
 @property (nonatomic) dispatch_queue_t actionQueue;
 
+@property (nonatomic) CHCancel *chCancel;
+
 @end
 
 @implementation CHAction
@@ -94,7 +96,7 @@ const char *kCHActionRunQueue = "kCHActionRunQueue";
 - (void)doComplectionWheel:(CHActionBlockWithCompletion)block {
     [self.runLine runWithBlock:^{
         block(self, ^(id param) {
-            if (self.stop) {
+            if (self.chCancel) {
                 self.wheel(param);
                 return;
             }
@@ -111,7 +113,10 @@ const char *kCHActionRunQueue = "kCHActionRunQueue";
             }
         });
     }];
-    
+}
+
+- (void)cancel {
+    self.chCancel = [[CHCancel alloc] init];
 }
 
 @end

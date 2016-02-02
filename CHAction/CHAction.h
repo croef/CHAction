@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CHCancel.h"
 
 @class CHAction;
 
@@ -23,8 +24,6 @@ typedef id(^CHActionBlock)(CHAction *action);
 
 @property (nonatomic) id result;
 
-@property (nonatomic) BOOL stop;
-
 + (instancetype)action;
 
 + (instancetype)action:(CHActionWheel)block;
@@ -32,5 +31,7 @@ typedef id(^CHActionBlock)(CHAction *action);
 - (CHAction *(^)(CHActionBlockWithCompletion block))doActionWithBlock;
 
 - (CHAction *(^)(CHActionBlock block))doAction;
+
+- (void)cancel;
 
 @end

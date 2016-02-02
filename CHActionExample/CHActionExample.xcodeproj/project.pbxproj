@@ -16,6 +16,7 @@
 		CB7ED6DB1C282D53009AC685 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB7ED6D91C282D53009AC685 /* LaunchScreen.storyboard */; };
 		CB7ED6E61C282D53009AC685 /* CHActionExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7ED6E51C282D53009AC685 /* CHActionExampleTests.m */; };
 		CB7ED6F71C28342C009AC685 /* CHAction.m in Sources */ = {isa = PBXBuildFile; fileRef = CB7ED6F61C28342C009AC685 /* CHAction.m */; };
+		CB8929DC1C6085C60028DB9A /* CHCancel.m in Sources */ = {isa = PBXBuildFile; fileRef = CB8929DB1C6085C60028DB9A /* CHCancel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		CB7ED6E71C282D53009AC685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB7ED6F51C28342C009AC685 /* CHAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAction.h; sourceTree = "<group>"; };
 		CB7ED6F61C28342C009AC685 /* CHAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAction.m; sourceTree = "<group>"; };
+		CB8929DA1C6085C60028DB9A /* CHCancel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCancel.h; sourceTree = "<group>"; };
+		CB8929DB1C6085C60028DB9A /* CHCancel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCancel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 				CB7ED6F61C28342C009AC685 /* CHAction.m */,
 				CB4804C21C4CB8CF00F068BD /* CHActionRunLine.h */,
 				CB4804C31C4CB8CF00F068BD /* CHActionRunLine.m */,
+				CB8929DA1C6085C60028DB9A /* CHCancel.h */,
+				CB8929DB1C6085C60028DB9A /* CHCancel.m */,
 			);
 			name = CHAction;
 			path = ../CHAction;
@@ -230,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB8929DC1C6085C60028DB9A /* CHCancel.m in Sources */,
 				CB7ED6D31C282D53009AC685 /* ViewController.m in Sources */,
 				CB4804C41C4CB8CF00F068BD /* CHActionRunLine.m in Sources */,
 				CB7ED6D01C282D53009AC685 /* AppDelegate.m in Sources */,
