@@ -9,8 +9,6 @@
 #import "CHAction.h"
 #import "CHActionRunLine.h"
 
-const char *kCHActionRunQueue = "kCHActionRunQueue";
-
 @interface CHAction ()
 
 @property (nonatomic, copy) CHActionWheel wheel;
@@ -20,8 +18,6 @@ const char *kCHActionRunQueue = "kCHActionRunQueue";
 @property (nonatomic) CHAction *nextAction;
 
 @property (nonatomic) CHActionRunLine *runLine;
-
-@property (nonatomic) dispatch_queue_t actionQueue;
 
 @property (nonatomic) CHCancel *chCancel;
 
@@ -63,13 +59,6 @@ const char *kCHActionRunQueue = "kCHActionRunQueue";
 }
 
 #pragma mark - private API
-
-- (dispatch_queue_t)actionQueue {
-    if (!_actionQueue) {
-        _actionQueue = dispatch_queue_create(kCHActionRunQueue, DISPATCH_QUEUE_SERIAL);
-    }
-    return _actionQueue;
-}
 
 - (CHAction *)appendActionWithBlock:(CHActionBlockWithCompletion)block {
     if (!self.nextAction && self.block) {
