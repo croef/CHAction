@@ -12,8 +12,6 @@ Pod::Spec.new do |s|
   s.name         = "CHAction"
   s.version      = "0.0.1"
   s.summary      = "A Chain Action Framework. It includes both a synchronous and asynchronous API."
-  s.description  = <<-DESC
-                   DESC
   s.homepage     = "https://github.com/croef/CHAction"
   
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
