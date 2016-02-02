@@ -21,49 +21,58 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    //    [CHAction action:^(id result) {
-    //        NSLog(@"%@",result);
-    //    }].doAction(^id(CHAction *action) {
-    //        sleep(2);
-    //        NSLog(@"%@",action.result);
-    //        return @"first";
-    //    }).doAction(^id(CHAction *action) {
-    //        sleep(2);
-    //        NSLog(@"%@",action.result);
-    //        return @"second";
-    //    }).doAction(^id(CHAction *action) {
-    //        sleep(2);
-    //        NSLog(@"%@",action.result);
-    //        return @"third";
-    //    });
-    
     [CHAction action:^(id result) {
         NSLog(@"%@",result);
-    }].doActionWithBlock(^(CHAction *action, void (^finishBlock)(id param)){
-        NSLog(@"%@",action.result);
+    }].doAction(^id(CHAction *action){
+        NSString *str = action.result;
+        NSLog(@"block:%@",str);
+        NSLog(@"result:%@",action.result);
         sleep(3);
-        NSLog(@"2%@",[NSThread currentThread]);
-        finishBlock(@"a");
-        NSLog(@"3%@",[NSThread currentThread]);
+        NSLog(@"thread:%@:%@",str,[NSThread currentThread]);
+        return @"a";
     }).doActionWithBlock(^(CHAction *action, void (^finishBlock)(id param)){
-        NSLog(@"%@",action.result);
-        sleep(2);
-        NSLog(@"2%@",[NSThread currentThread]);
-        finishBlock(@"b");
-        NSLog(@"3%@",[NSThread currentThread]);
+        NSString *str = action.result;
+        NSLog(@"block:%@",str);
+        NSLog(@"result:%@",action.result);
+        sleep(3);
+        NSLog(@"thread:%@:%@",str,[NSThread currentThread]);
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            sleep(2);
+            NSLog(@"callback:thread:%@:%@",str,[NSThread currentThread]);
+            finishBlock(@"b");
+            
+        });
     }).doActionWithBlock(^(CHAction *action, void (^finishBlock)(id param)){
-        NSLog(@"%@",action.result);
-        sleep(5);
-        NSLog(@"2%@",[NSThread currentThread]);
+        NSString *str = action.result;
+        NSLog(@"block:%@",str);
+        NSLog(@"result:%@",action.result);
+        sleep(3);
+        NSLog(@"thread:%@:%@",str,[NSThread currentThread]);
         finishBlock(@"c");
-        NSLog(@"3%@",[NSThread currentThread]);
+        if (finishBlock) {
+            NSLog(@"");
+        }
+    }).doAction(^id(CHAction *action){
+        NSString *str = action.result;
+        NSLog(@"block:%@",str);
+        NSLog(@"result:%@",action.result);
+        sleep(3);
+        NSLog(@"thread:%@:%@",str,[NSThread currentThread]);
+        return @"d";
+    }).doAction(^id(CHAction *action){
+        NSString *str = action.result;
+        NSLog(@"block:%@",str);
+        NSLog(@"result:%@",action.result);
+        sleep(3);
+        NSLog(@"thread:%@:%@",str,[NSThread currentThread]);
+        return @"e";
     }).doActionWithBlock(^(CHAction *action, void (^finishBlock)(id param)){
-        NSLog(@"%@",action.result);
-        sleep(2);
-        NSLog(@"2%@",[NSThread currentThread]);
-        finishBlock(@"d");
-        NSLog(@"3%@",[NSThread currentThread]);
+        NSString *str = action.result;
+        NSLog(@"block:%@",str);
+        NSLog(@"result:%@",action.result);
+        sleep(3);
+        NSLog(@"thread:%@:%@",str,[NSThread currentThread]);
+        finishBlock(@"f");
     });
 }
 

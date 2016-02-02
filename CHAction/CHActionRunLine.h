@@ -10,4 +10,10 @@
 
 @interface CHActionRunLine : NSObject
 
+- (instancetype)initWithQueue:(dispatch_queue_t)queue;
+
+- (instancetype)initWithMainQueue;
+
+- (void)runWithBlock:(void (^)())block;
+
 @end
