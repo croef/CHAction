@@ -10,4 +10,6 @@
 
 @interface CHCancel : NSObject
 
++ (instancetype)cancel;
+
 @end

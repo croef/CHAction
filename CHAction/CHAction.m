@@ -105,7 +105,7 @@
 }
 
 - (void)cancel {
-    self.chCancel = [[CHCancel alloc] init];
+    self.chCancel = [CHCancel cancel];
 }
 
 @end

@@ -10,4 +10,9 @@
 
 @implementation CHCancel
 
++ (instancetype)cancel {
+    CHCancel *cancel = [[CHCancel alloc] init];
+    return cancel;
+}
+
 @end
