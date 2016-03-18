@@ -104,7 +104,7 @@
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             NSLog(@"%@",action);
             sleep(5);
-            action.stop = YES;
+            [action cancel];
             NSLog(@"2%@",[NSThread currentThread]);
             finishBlock(@"c");
         });
